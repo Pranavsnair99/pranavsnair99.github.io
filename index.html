@@ -3,23 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta name="description"
         content="Pranav Sajeev Nair's research portfolio in clean energy,
-                 battery sustainability and life cycle assessment.">
+                 battery sustainability, life cycle assessment and
+                 critical material demand.">
+
+  <meta name="theme-color" content="#f6f3ec">
+
   <title>Pranav Sajeev Nair | Research Portfolio</title>
 
   <style>
     :root {
       --background: #f6f3ec;
+      --surface: #fffdf8;
       --text: #24352e;
       --muted: #58655e;
       --accent: #355d49;
       --border: #d9ded5;
+      --soft-green: #e2e8dc;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -31,8 +42,20 @@
 
     .container {
       width: min(1100px, 88%);
-      margin: auto;
+      margin-inline: auto;
     }
+
+    a {
+      color: var(--accent);
+    }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    /* Navigation */
 
     header {
       padding: 24px 0;
@@ -43,16 +66,66 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      flex-wrap: wrap;
+      gap: 16px 24px;
     }
-
-    a { color: var(--accent); }
 
     .brand {
       font-weight: 700;
       text-decoration: none;
-      letter-spacing: .04em;
+      letter-spacing: 0.04em;
     }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      padding: 8px 0;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    /* Shared typography */
+
+    .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, serif;
+      font-weight: 400;
+    }
+
+    h1,
+    h2 {
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(44px, 6vw, 76px);
+      margin: 20px 0;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 40px);
+      margin: 0 0 24px;
+    }
+
+    /* Opening section */
 
     .hero {
       min-height: 75vh;
@@ -63,24 +136,8 @@
       padding: 80px 0;
     }
 
-    .label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    h1, h2 {
-      font-family: Georgia, serif;
-      font-weight: 400;
-      line-height: 1.1;
-    }
-
-    h1 {
-      font-size: clamp(44px, 6vw, 76px);
-      margin: 20px 0;
-      letter-spacing: -.04em;
+    .hero > div {
+      min-width: 0;
     }
 
     .role {
@@ -94,25 +151,40 @@
       font-size: 17px;
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
     .button {
       display: inline-block;
       background: var(--accent);
       color: white;
       padding: 13px 24px;
-      margin-top: 20px;
+      border: 1px solid var(--accent);
       border-radius: 6px;
       text-decoration: none;
     }
 
-    a:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 5px;
+    .button:hover {
+      background: #294b3a;
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .button-secondary:hover {
+      background: var(--soft-green);
     }
 
     .portrait {
       aspect-ratio: 4 / 5;
       border-radius: 180px 180px 12px 12px;
-      background: #e2e8dc;
+      background: var(--soft-green);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -124,22 +196,143 @@
       color: var(--accent);
     }
 
+    /* About section */
+
     .about {
       border-top: 1px solid var(--border);
       padding: 65px 0;
       scroll-margin-top: 25px;
     }
 
-    h2 {
-      font-size: 40px;
-      margin: 0 0 24px;
-    }
-
-    .about p {
+    .about .about-text {
       max-width: 740px;
       color: var(--muted);
       font-size: 18px;
     }
+
+    /* Projects section */
+
+    .projects {
+      padding: 65px 0;
+      border-top: 1px solid var(--border);
+      scroll-margin-top: 25px;
+    }
+
+    .section-intro {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      align-items: start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 32px;
+    }
+
+    .project-card > * {
+      min-width: 0;
+    }
+
+    .project-visual {
+      margin: 0;
+      background: var(--soft-green);
+    }
+
+    .project-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .project-visual figcaption {
+      padding: 16px 22px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .project-content {
+      padding: clamp(24px, 4vw, 40px);
+    }
+
+    .project-status {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #e8eee3;
+      color: var(--accent);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .project-content h3 {
+      font-size: clamp(27px, 3vw, 36px);
+      line-height: 1.2;
+      margin: 20px 0 16px;
+    }
+
+    .project-meta,
+    .project-content p,
+    .project-content li {
+      color: var(--muted);
+    }
+
+    .project-meta {
+      font-size: 14px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0;
+    }
+
+    .project-tags span {
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    .project-content details {
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+    }
+
+    .project-content summary {
+      cursor: pointer;
+      color: var(--accent);
+      font-weight: 700;
+      padding: 12px 0;
+    }
+
+    .project-content summary:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .project-content h4 {
+      margin: 24px 0 8px;
+      font-size: 16px;
+    }
+
+    .project-content ul {
+      padding-left: 20px;
+    }
+
+    .project-content li {
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
 
     footer {
       padding: 24px 0;
@@ -148,11 +341,20 @@
       color: var(--muted);
     }
 
+    /* Tablet and mobile layouts */
+
+    @media (max-width: 800px) {
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 700px) {
       .hero {
         grid-template-columns: 1fr;
         padding: 50px 0;
         gap: 35px;
+        min-height: auto;
       }
 
       .portrait {
@@ -160,11 +362,20 @@
         justify-self: center;
       }
 
-      .role { font-size: 19px; }
+      .role {
+        font-size: 19px;
+      }
+
+      .about,
+      .projects {
+        padding: 48px 0;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
@@ -173,16 +384,28 @@
   <header>
     <nav class="container" aria-label="Main navigation">
       <a class="brand" href="./">PRANAV S. NAIR</a>
-      <a href="#about">About me</a>
+
+      <div class="nav-links">
+        <a href="#about">About me</a>
+        <a href="#projects">Projects</a>
+      </div>
     </nav>
   </header>
 
   <main class="container">
+
+    <!-- Opening section -->
+
     <section class="hero" aria-labelledby="name">
       <div>
-        <p class="label">Clean energy · Research · Sustainability</p>
+        <p class="label">
+          Clean energy · Research · Sustainability
+        </p>
 
-        <h1 id="name">Pranav<br>Sajeev Nair</h1>
+        <h1 id="name">
+          Pranav<br>
+          Sajeev Nair
+        </h1>
 
         <p class="role">
           Clean Energy Engineer &amp; Sustainability Researcher
@@ -194,36 +417,184 @@
           engineering.
         </p>
 
-        <a class="button" href="#about">Get to know me</a>
+        <div class="hero-actions">
+          <a class="button" href="#projects">
+            Explore my projects
+          </a>
+
+          <a class="button button-secondary" href="#about">
+            About me
+          </a>
+        </div>
       </div>
 
+      <!-- Replace these initials with your photograph later. -->
       <div class="portrait" aria-hidden="true">
         <span>PSN</span>
       </div>
     </section>
 
-    <section class="about" id="about" aria-labelledby="about-title">
-      <p class="label">About me</p>
-      <h2 id="about-title">Understanding technologies.<br>
-        Assessing their impact.</h2>
+    <!-- About section -->
 
-      <p>
+    <section class="about"
+             id="about"
+             aria-labelledby="about-title">
+
+      <p class="label">About me</p>
+
+      <h2 id="about-title">
+        Understanding technologies.<br>
+        Assessing their impact.
+      </h2>
+
+      <p class="about-text">
         I hold a master's degree in Clean Energy Processes from
         Friedrich-Alexander-Universität Erlangen-Nürnberg.
         My experience connects battery research, environmental
         assessment and industrial data analysis.
       </p>
 
-      <p>
+      <p class="about-text">
         I use material and energy balances, life cycle modelling
         and computational tools to investigate how technologies
         perform and where improvements are possible.
       </p>
     </section>
+
+    <!-- Projects section -->
+
+    <section class="projects"
+             id="projects"
+             aria-labelledby="projects-title">
+
+      <p class="label">Selected research</p>
+
+      <h2 id="projects-title">Projects</h2>
+
+      <p class="section-intro">
+        Explore the research questions, methods and contributions
+        behind my work in clean energy and sustainability.
+      </p>
+
+      <!-- Project 1: KIT energy-transition research -->
+
+      <article class="project-card"
+               aria-labelledby="kit-project-title">
+
+        <figure class="project-visual">
+          <img
+            src="kit-energy-transition.png"
+            alt="Conceptual illustration of solar panels,
+                 wind turbines, hydropower, energy storage
+                 and underlying mineral resources."
+            loading="lazy"
+            width="1672"
+            height="941">
+
+          <figcaption>
+            AI-generated conceptual illustration of renewable
+            technologies and their material foundations.
+          </figcaption>
+        </figure>
+
+        <div class="project-content">
+          <span class="project-status">
+            Ongoing research
+          </span>
+
+          <h3 id="kit-project-title">
+            Global Energy Transition and Critical Material Demand
+          </h3>
+
+          <p class="project-meta">
+            <strong>
+              KIT · Institute for Technology Assessment
+              and Systems Analysis (ITAS)
+            </strong><br>
+            Scientific Assistant · October 2026–present
+          </p>
+
+          <p>
+            I compare global 100% renewable and net-zero energy
+            scenarios toward 2050–2100, examining technology
+            deployment, energy storage requirements and the
+            associated demand for critical raw materials.
+          </p>
+
+          <div class="project-tags"
+               aria-label="Research methods">
+            <span>Energy scenarios</span>
+            <span>Literature review</span>
+            <span>Comparative datasets</span>
+            <span>Critical materials</span>
+          </div>
+
+          <details>
+            <summary>Explore the research</summary>
+
+            <h4>Research question</h4>
+
+            <p>
+              How do global energy-transition pathways translate
+              into future technology deployment, material demand
+              and potential supply risks?
+            </p>
+
+            <h4>My contribution</h4>
+
+            <ul>
+              <li>
+                Review international studies and extract
+                quantitative projections for solar PV, wind,
+                hydropower, Power-to-X, electricity generation
+                and storage.
+              </li>
+
+              <li>
+                Build comparative datasets documenting installed
+                capacities, generation, storage requirements
+                and scenario assumptions.
+              </li>
+
+              <li>
+                Compare technology pathways and deployment
+                assumptions across 100% renewable and
+                net-zero energy studies.
+              </li>
+
+              <li>
+                Assess critical-material requirements associated
+                with large-scale renewable-energy deployment
+                and future technology demand.
+              </li>
+
+              <li>
+                Link energy-transition scenarios with raw-material
+                demand and potential supply risks for strategic
+                energy technologies.
+              </li>
+            </ul>
+
+            <h4>Research objective</h4>
+
+            <p>
+              Connect long-term energy-transition scenarios with
+              their material requirements to support assessment
+              of future technology demand and resource constraints.
+            </p>
+          </details>
+        </div>
+      </article>
+
+      <!-- Add future project cards here. -->
+
+    </section>
   </main>
 
   <footer>
-    <div class="container">Pranav Sajeev Nair · Research portfolio</div>
+    <div class="container">
+      Pranav Sajeev Nair · Research portfolio
+    </div>
   </footer>
 </body>
 </html>
